@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #ff6b6b, #ff99cc, #ff6b6b, #ff477e);
+  background-size: 400% 400%; /* You can also remove this line if you want solid color */
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50L20 80L80 80L50 50Z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E");
+  animation: patternMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.gallery-video {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+    border-radius: 15px;
+    transition: 0.5s;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.5);
+    border-image: initial;
+}
+
+.gallery-video:hover {
+  transform: scale(1.05);
+  border-color: #ff3366;
+  box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin: 20px 0;
+}
+
+.message-container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px 0;
+  backdrop-filter: blur(5px);
+}
+
+.message {
+  font-size: 24px;
+  color: white;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+@keyframes sparkle {
+  0%, 100% { text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+  50% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff3366; }
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: linear-gradient(45deg, #ff3366, #ff6b6b);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 51, 102, 0.6);
+}
+
+
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.rose {
+  position: fixed;
+  font-size: 30px;
+  z-index: 1000;
+  animation: float-rose 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.3));
+}
+
+@keyframes float-rose {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-100px) rotate(45deg);
+  }
+}
+
+@keyframes float-up-heart {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleFloat 15s linear infinite;
+}
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) scale(2);
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .message {
+    font-size: 20px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
